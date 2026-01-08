@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA 2K26 MyPlayer Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>NBA 2K26 Builder</h1>
+            <p class="subtitle">Créez votre build parfait</p>
+        </header>
+
+        <main>
+            <!-- Player Info Section -->
+            <section class="section player-info">
+                <h2>Informations du Joueur</h2>
+                <div class="info-grid">
+                    <div class="form-group">
+                        <label for="playerName">Nom du Build</label>
+                        <input type="text" id="playerName" placeholder="Mon Build">
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <select id="position">
+                            <option value="PG">Point Guard (PG)</option>
+                            <option value="SG">Shooting Guard (SG)</option>
+                            <option value="SF">Small Forward (SF)</option>
+                            <option value="PF">Power Forward (PF)</option>
+                            <option value="C">Center (C)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Taille: <span id="heightDisplay">6'6"</span></label>
+                        <input type="range" id="height" min="66" max="88" value="78">
+                        <div class="range-labels">
+                            <span>5'6"</span>
+                            <span id="maxHeightLabel">7'4"</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Poids: <span id="weightDisplay">200</span> lbs</label>
+                        <input type="range" id="weight" min="150" max="300" value="200">
+                        <div class="range-labels">
+                            <span>150 lbs</span>
+                            <span>300 lbs</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="wingspan">Envergure: <span id="wingspanDisplay">6'8"</span></label>
+                        <input type="range" id="wingspan" min="60" max="94" value="80">
+                        <div class="range-labels">
+                            <span id="minWingspanLabel">6'0"</span>
+                            <span id="maxWingspanLabel">7'0"</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Overall Rating Display -->
+            <section class="section overall-section">
+                <div class="overall-display">
+                    <span class="overall-label">Overall</span>
+                    <span class="overall-value" id="overallRating">60</span>
+                </div>
+                <div class="points-remaining">
+                    Points restants: <span id="pointsRemaining">420</span>
+                </div>
+            </section>
+
+            <!-- Attributes Section -->
+            <section class="section attributes-section">
+                <h2>Attributs</h2>
+                <div class="attributes-grid">
+                    <!-- Finishing -->
+                    <div class="attribute-category finishing">
+                        <h3>Finishing</h3>
+                        <div class="attribute-item">
+                            <label>Close Shot</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="closeShot">-</button>
+                                <span class="attr-value" id="closeShot">25</span>
+                                <button class="btn-plus" data-attr="closeShot">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Driving Layup</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="drivingLayup">-</button>
+                                <span class="attr-value" id="drivingLayup">25</span>
+                                <button class="btn-plus" data-attr="drivingLayup">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Driving Dunk</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="drivingDunk">-</button>
+                                <span class="attr-value" id="drivingDunk">25</span>
+                                <button class="btn-plus" data-attr="drivingDunk">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Standing Dunk</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="standingDunk">-</button>
+                                <span class="attr-value" id="standingDunk">25</span>
+                                <button class="btn-plus" data-attr="standingDunk">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Post Control</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="postControl">-</button>
+                                <span class="attr-value" id="postControl">25</span>
+                                <button class="btn-plus" data-attr="postControl">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shooting -->
+                    <div class="attribute-category shooting">
+                        <h3>Shooting</h3>
+                        <div class="attribute-item">
+                            <label>Mid-Range Shot</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="midRange">-</button>
+                                <span class="attr-value" id="midRange">25</span>
+                                <button class="btn-plus" data-attr="midRange">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Three-Point Shot</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="threePoint">-</button>
+                                <span class="attr-value" id="threePoint">25</span>
+                                <button class="btn-plus" data-attr="threePoint">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Free Throw</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="freeThrow">-</button>
+                                <span class="attr-value" id="freeThrow">25</span>
+                                <button class="btn-plus" data-attr="freeThrow">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Playmaking -->
+                    <div class="attribute-category playmaking">
+                        <h3>Playmaking</h3>
+                        <div class="attribute-item">
+                            <label>Pass Accuracy</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="passAccuracy">-</button>
+                                <span class="attr-value" id="passAccuracy">25</span>
+                                <button class="btn-plus" data-attr="passAccuracy">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Ball Handle</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="ballHandle">-</button>
+                                <span class="attr-value" id="ballHandle">25</span>
+                                <button class="btn-plus" data-attr="ballHandle">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Speed With Ball</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="speedWithBall">-</button>
+                                <span class="attr-value" id="speedWithBall">25</span>
+                                <button class="btn-plus" data-attr="speedWithBall">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defense -->
+                    <div class="attribute-category defense">
+                        <h3>Defense</h3>
+                        <div class="attribute-item">
+                            <label>Interior Defense</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="interiorDefense">-</button>
+                                <span class="attr-value" id="interiorDefense">25</span>
+                                <button class="btn-plus" data-attr="interiorDefense">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Perimeter Defense</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="perimeterDefense">-</button>
+                                <span class="attr-value" id="perimeterDefense">25</span>
+                                <button class="btn-plus" data-attr="perimeterDefense">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Steal</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="steal">-</button>
+                                <span class="attr-value" id="steal">25</span>
+                                <button class="btn-plus" data-attr="steal">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Block</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="block">-</button>
+                                <span class="attr-value" id="block">25</span>
+                                <button class="btn-plus" data-attr="block">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rebounding -->
+                    <div class="attribute-category rebounding">
+                        <h3>Rebounding</h3>
+                        <div class="attribute-item">
+                            <label>Offensive Rebound</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="offensiveRebound">-</button>
+                                <span class="attr-value" id="offensiveRebound">25</span>
+                                <button class="btn-plus" data-attr="offensiveRebound">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Defensive Rebound</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="defensiveRebound">-</button>
+                                <span class="attr-value" id="defensiveRebound">25</span>
+                                <button class="btn-plus" data-attr="defensiveRebound">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Physicals -->
+                    <div class="attribute-category physicals">
+                        <h3>Physicals</h3>
+                        <div class="attribute-item">
+                            <label>Speed</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="speed">-</button>
+                                <span class="attr-value" id="speed">25</span>
+                                <button class="btn-plus" data-attr="speed">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Acceleration</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="acceleration">-</button>
+                                <span class="attr-value" id="acceleration">25</span>
+                                <button class="btn-plus" data-attr="acceleration">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Strength</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="strength">-</button>
+                                <span class="attr-value" id="strength">25</span>
+                                <button class="btn-plus" data-attr="strength">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Vertical</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="vertical">-</button>
+                                <span class="attr-value" id="vertical">25</span>
+                                <button class="btn-plus" data-attr="vertical">+</button>
+                            </div>
+                        </div>
+                        <div class="attribute-item">
+                            <label>Stamina</label>
+                            <div class="attribute-control">
+                                <button class="btn-minus" data-attr="stamina">-</button>
+                                <span class="attr-value" id="stamina">25</span>
+                                <button class="btn-plus" data-attr="stamina">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Badges Section -->
+            <section class="section badges-section">
+                <h2>Badges</h2>
+                <div class="badges-grid">
+                    <!-- Finishing Badges -->
+                    <div class="badge-category">
+                        <h3>Finishing</h3>
+                        <div class="badge-list" id="finishingBadges">
+                            <div class="badge-item" data-badge="acrobat">
+                                <span class="badge-name">Acrobat</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="slithery">
+                                <span class="badge-name">Slithery</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="posterizer">
+                                <span class="badge-name">Posterizer</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="riseUp">
+                                <span class="badge-name">Rise Up</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shooting Badges -->
+                    <div class="badge-category">
+                        <h3>Shooting</h3>
+                        <div class="badge-list" id="shootingBadges">
+                            <div class="badge-item" data-badge="limitless">
+                                <span class="badge-name">Limitless Range</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="deadeye">
+                                <span class="badge-name">Deadeye</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="greenMachine">
+                                <span class="badge-name">Green Machine</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="catchShoot">
+                                <span class="badge-name">Catch & Shoot</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Playmaking Badges -->
+                    <div class="badge-category">
+                        <h3>Playmaking</h3>
+                        <div class="badge-list" id="playmakingBadges">
+                            <div class="badge-item" data-badge="ankleBreaker">
+                                <span class="badge-name">Ankle Breaker</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="dimer">
+                                <span class="badge-name">Dimer</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="floorGeneral">
+                                <span class="badge-name">Floor General</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="quickFirstStep">
+                                <span class="badge-name">Quick First Step</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defense Badges -->
+                    <div class="badge-category">
+                        <h3>Defense</h3>
+                        <div class="badge-list" id="defenseBadges">
+                            <div class="badge-item" data-badge="clamps">
+                                <span class="badge-name">Clamps</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="interceptor">
+                                <span class="badge-name">Interceptor</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="anchor">
+                                <span class="badge-name">Anchor</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="challenger">
+                                <span class="badge-name">Challenger</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rebounding Badges -->
+                    <div class="badge-category">
+                        <h3>Rebounding</h3>
+                        <div class="badge-list" id="reboundingBadges">
+                            <div class="badge-item" data-badge="rebound">
+                                <span class="badge-name">Rebound Chaser</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="boxout">
+                                <span class="badge-name">Box Out Beast</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                            <div class="badge-item" data-badge="worm">
+                                <span class="badge-name">Worm</span>
+                                <select class="badge-level">
+                                    <option value="none">-</option>
+                                    <option value="bronze">Bronze</option>
+                                    <option value="silver">Silver</option>
+                                    <option value="gold">Gold</option>
+                                    <option value="hof">HOF</option>
+                                    <option value="legend">Legend</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Actions -->
+            <section class="section actions-section">
+                <button class="btn btn-primary" id="saveBuild">Sauvegarder le Build</button>
+                <button class="btn btn-secondary" id="resetBuild">Réinitialiser</button>
+                <button class="btn btn-secondary" id="exportBuild">Exporter</button>
+            </section>
+
+            <!-- Saved Builds -->
+            <section class="section saved-builds-section">
+                <h2>Builds Sauvegardés</h2>
+                <div class="saved-builds-list" id="savedBuildsList">
+                    <p class="no-builds">Aucun build sauvegardé</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>NBA 2K26 Builder - Outil non officiel</p>
+            <p>Sources: <a href="https://nba.2k.com/2k26/courtside-report/myplayer-builder/" target="_blank">NBA 2K Official</a> | <a href="https://www.nba2klab.com/" target="_blank">NBA 2K Lab</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
