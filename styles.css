@@ -1,0 +1,502 @@
+/* NBA 2K26 Builder - Styles */
+
+:root {
+    --primary-color: #ff6b00;
+    --primary-dark: #cc5500;
+    --secondary-color: #1a1a2e;
+    --background-dark: #0f0f1a;
+    --background-card: #16213e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --finishing-color: #e74c3c;
+    --shooting-color: #3498db;
+    --playmaking-color: #f39c12;
+    --defense-color: #27ae60;
+    --rebounding-color: #9b59b6;
+    --physicals-color: #1abc9c;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-dark) 0%, var(--secondary-color) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--primary-color), #ff9500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Sections */
+.section {
+    background: var(--background-card);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+/* Player Info */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.form-group input[type="text"],
+.form-group select {
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Overall Section */
+.overall-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--background-card), rgba(255, 107, 0, 0.1));
+}
+
+.overall-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overall-label {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.overall-value {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
+}
+
+.points-remaining {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.points-remaining span {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Attributes Grid */
+.attributes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.attribute-category {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    border-left: 4px solid;
+}
+
+.attribute-category.finishing {
+    border-color: var(--finishing-color);
+}
+
+.attribute-category.shooting {
+    border-color: var(--shooting-color);
+}
+
+.attribute-category.playmaking {
+    border-color: var(--playmaking-color);
+}
+
+.attribute-category.defense {
+    border-color: var(--defense-color);
+}
+
+.attribute-category.rebounding {
+    border-color: var(--rebounding-color);
+}
+
+.attribute-category.physicals {
+    border-color: var(--physicals-color);
+}
+
+.attribute-category h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.attribute-category.finishing h3 { color: var(--finishing-color); }
+.attribute-category.shooting h3 { color: var(--shooting-color); }
+.attribute-category.playmaking h3 { color: var(--playmaking-color); }
+.attribute-category.defense h3 { color: var(--defense-color); }
+.attribute-category.rebounding h3 { color: var(--rebounding-color); }
+.attribute-category.physicals h3 { color: var(--physicals-color); }
+
+.attribute-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.attribute-item:last-child {
+    border-bottom: none;
+}
+
+.attribute-item label {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.attribute-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-minus,
+.btn-plus {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-minus:hover,
+.btn-plus:hover {
+    background: var(--primary-color);
+}
+
+.attr-value {
+    width: 40px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Badges Section */
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.badge-category {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.badge-category h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.badge-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.badge-item:last-child {
+    border-bottom: none;
+}
+
+.badge-name {
+    font-size: 0.9rem;
+}
+
+.badge-level {
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.badge-level option {
+    background: var(--secondary-color);
+}
+
+/* Badge Level Colors */
+.badge-level[data-selected="bronze"] { border-color: #cd7f32; color: #cd7f32; }
+.badge-level[data-selected="silver"] { border-color: #c0c0c0; color: #c0c0c0; }
+.badge-level[data-selected="gold"] { border-color: #ffd700; color: #ffd700; }
+.badge-level[data-selected="hof"] { border-color: #9400d3; color: #9400d3; }
+.badge-level[data-selected="legend"] { border-color: #ff1493; color: #ff1493; }
+
+/* Actions Section */
+.actions-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 35px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 107, 0, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Saved Builds */
+.saved-builds-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.no-builds {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 30px;
+    grid-column: 1 / -1;
+}
+
+.saved-build-card {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.saved-build-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.saved-build-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.saved-build-card .build-info {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.saved-build-card .build-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.saved-build-card .btn-small {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .overall-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .overall-value {
+        font-size: 3.5rem;
+    }
+
+    .attributes-grid,
+    .badges-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions-section {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.overall-value.updated {
+    animation: pulse 0.3s ease;
+}
